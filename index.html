@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>م. محمد عبد الحليم حسنين | استشاري ومهندس نظم معلومات جغرافية GIS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#035485',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            dark: '#0b1329',
+                            card: '#111c38'
+                        },
+                        gis: {
+                            accent: '#10b981',
+                            gold: '#f59e0b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b1329;
+            color: #e2e8f0;
+        }
+
+        /* Hero Background Dynamic Grid */
+        .gis-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Glassmorphic card design */
+        .glass-card {
+            background: rgba(17, 28, 56, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(2, 132, 199, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.3);
+        }
+
+        /* Print styles optimization */
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: #fff !important; color: #000 !important; }
+            .glass-card { background: #fff !important; border: 1px solid #ccc !important; color: #000 !important; box-shadow: none !important; }
+            .text-gray-300, .text-gray-400 { color: #333 !important; }
+            .text-white { color: #000 !important; }
+        }
+    </style>
+</head>
+<body class="gis-grid min-h-screen selection:bg-brand-500 selection:text-white flex flex-col justify-between">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800/80 no-print">
+        <div class="max-w-7xl mx-mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between mx-auto">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-gis-accent flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid font-bold text-white text-lg fa-map-location-dot"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wide text-white block">م. محمد عبد الحليم</span>
+                    <span class="text-xs text-brand-500 font-semibold block">استشاري ومهندس نظم معلومات جغرافية GIS</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex space-x-8 space-x-reverse font-medium text-sm text-gray-300">
+                <a href="#about" class="hover:text-brand-500 transition-colors">عن المهندس</a>
+                <a href="#experience" class="hover:text-brand-500 transition-colors">الخبرات العملية</a>
+                <a href="#skills" class="hover:text-brand-500 transition-colors">المهارات التقنية</a>
+                <a href="#certifications" class="hover:text-brand-500 transition-colors">الشهادات والتدريب</a>
+                <a href="#education" class="hover:text-brand-500 transition-colors">المؤهل العلمي</a>
+            </nav>
+
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <button onclick="window.print()" class="px-4 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-white rounded-lg border border-slate-700 transition flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i>
+                    <span class="hidden sm:inline">طباعة / PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Hero / Personal Profile Section -->
+        <section id="about" class="relative rounded-3xl p-8 sm:p-12 glass-card overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-gis-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-gis-accent animate-pulse"></span>
+                        خبرة تفوق 10+ سنوات في حلول GIS وتكنولوجيا المعلومات
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                        المهندس / محمد عبد الحليم حسنين
+                    </h1>
+                    
+                    <p class="text-lg text-brand-500 font-semibold">
+                        استشاري نظم المعلومات الجغرافية (GIS) ومهندس الاتصالات ونظم المعلومات
+                    </p>
+                    
+                    <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                        مهندس نظم معلومات جغرافي يمتلك أكثر من 10 سنوات من الخبرة المتقدمة في تكامل نظم GIS، إدارة أصول البنية التحتية، وإدارة قواعد البيانات المكانية. خبرة مثبتة في تطوير وتطبيق حلول GIS المعقدة، وربطها بالتطبيقات الهندسية، مع قيادة فرق العمل وتطوير الأتمتة باستغلال Python (ArcPy).
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-800">
+                        <div>
+                            <span class="block text-xs text-gray-400">الجنسية</span>
+                            <span class="font-semibold text-white">مصري</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400">تاريخ الميلاد</span>
+                            <span class="font-semibold text-white">12 مارس 1975</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400">تأدية الخدمة العسكرية</span>
+                            <span class="font-semibold text-white">معفى نهائياً</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-gray-400">العضوية المهنية</span>
+                            <span class="font-semibold text-white">نقابة المهندسين المصرية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Info Quick Card -->
+                <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-800 space-y-4">
+                    <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-address-card text-brand-500"></i>
+                        بيانات التواصل السريع
+                    </h3>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-500 shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-400">المؤهل</span>
+                                <span class="font-medium text-white">بكالوريوس هندسة اتصالات وإلكترونيات</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-500 shrink-0">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-400">الجهة الحالية</span>
+                                <span class="font-medium text-white">وزارة الموارد المائية والري - مصر</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-500 shrink-0">
+                                <i class="fa-solid fa-language"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-400">اللغات</span>
+                                <span class="font-medium text-white">العربية (الأم) | الإنجليزية (ممتاز)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Employment History / Timeline Section -->
+        <section id="experience" class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500 text-xl">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">الخبرات العملية والوظيفية</h2>
+                    <p class="text-sm text-gray-400">سجل حافل بالخبرات القيادية والهندسية والمشاريع القومية</p>
+                </div>
+            </div>
+
+            <div class="space-y-6 relative before:absolute before:inset-0 before:left-auto before:right-6 before:w-0.5 before:bg-slate-800">
+                
+                <!-- Experience Item 1 -->
+                <div class="relative right-0 sm:right-12 glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="absolute -right-12 sm:-right-16 top-8 w-8 h-8 rounded-full bg-brand-600 border-4 border-slate-900 flex items-center justify-center text-white text-xs">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-500 text-xs font-bold">مايو 2025 - الحاضر</span>
+                            <h3 class="text-xl font-bold text-white mt-2">مهندس نظم ومعلومات جغرافية (Systems and GIS Engineer)</h3>
+                            <h4 class="text-gray-400 text-sm">جهاز حماية وتنظيم أراضي الدولة - مصلحة الري - وزارة الموارد المائية والري</h4>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+                        <li>قيادة فرق عمل متعددة التخصصات لتطوير مسارات عمل مؤتمتة (Automated Workflows) للتحقق من ملكيات الأراضي واكتشاف التعديات وإصدار التقارير باستخدام Python (ArcPy)، مما ساهم في تسريع الإجراءات لأكثر من 15 محافظة.</li>
+                        <li>إقامة وتنظيم دورات تدريبية للمهندسين الميدانيين على أدوات الـ GIS ومعايير البيانات المكانية لضمان الالتزام بالسياسات الوطنية وجودة البيانات.</li>
+                        <li>دمج صور الأقمار الصناعية والبيانات المساحية (Cadastral Data) في منصة Esri ArcGIS Enterprise مركزية، مما خفّض زمن حسم النزاعات على الأراضي.</li>
+                        <li>تصميم وتطبيق تطبيقات قواعد البيانات المكانية لدعم رقمنة وتنظيم أكثر من 5 هكتارات من الأراضي المملوكة للدولة.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="relative right-0 sm:right-12 glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="absolute -right-12 sm:-right-16 top-8 w-8 h-8 rounded-full bg-slate-700 border-4 border-slate-900 flex items-center justify-center text-white text-xs">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-gray-300 text-xs font-bold">مارس 2013 - مايو 2025</span>
+                            <h3 class="text-xl font-bold text-white mt-2">مهندس استشعار عن بعد ونظم معلومات جغرافية (GIS & RS Engineer)</h3>
+                            <p class="text-gis-gold text-xs font-semibold mt-1"><i class="fa-solid fa-award"></i> شغل أيضاً منصب: مدير إدارة الرصد والاتصالات (2020 - 2023)</p>
+                            <h4 class="text-gray-400 text-sm">مصلحة الميكانيكا والكهرباء - وزارة الموارد المائية والري</h4>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+                        <li>تصميم وإدارة قاعدة بيانات محطات الرفع والمحطات المائية في مصر باستخدام MS Access, MS Excel, VBA, & ArcGIS لتجميع وحساب البيانات الجغرافية وتحليلها.</li>
+                        <li>عضو اللجنة الدائمة للخرائط الأساسية بوزارة الري ممثلاً عن مصلحة الميكانيكا والكهرباء منذ عام 2016.</li>
+                        <li>عضو فريق تطوير تطبيقات الأندرويد لوزارة الري (Water Map, Water Map Plus, Water Net).</li>
+                        <li>تكامل نظم GIS مع أنظمة إدارة الأصول (Asset Management) والأنظمة الهندسية الأخرى.</li>
+                        <li>تطوير ونشر لوحات البيانات المكانية (Geospatial Dashboards) لعرض وتحليل البيانات الإحصائية تفاعلياً.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="relative right-0 sm:right-12 glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="absolute -right-12 sm:-right-16 top-8 w-8 h-8 rounded-full bg-slate-700 border-4 border-slate-900 flex items-center justify-center text-white text-xs">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-gray-300 text-xs font-bold">يوليو 2006 - مارس 2013</span>
+                            <h3 class="text-xl font-bold text-white mt-2">مهندس دعم فني وما قبل البيع (Pre Sales Engineer)</h3>
+                            <h4 class="text-gray-400 text-sm">شركة Summit Technology Solutions (شراكة أوراسكوم وسوميتومو)</h4>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+                        <li>التعاون مع لجان المناقصات ودراسة كراسات الشروط والمواصفات الفنية وتحديد المتطلبات وتصميم الحلول المتكاملة ITTs, RFPs, RFQs.</li>
+                        <li>إعداد التصميمات والهياكل المخططة باستخدام Visio للمناقصات الفنية.</li>
+                        <li>مسؤول عن تهيئة وتكشيف وحدات التخزين السحابية والمحلية HP Storage وخوادم البرج والنصلية (HP ProLiant ML, DL, BL).</li>
+                        <li>تقديم الاستشارات الفنية لحلول تقنيات الوفرة العالية (High Availability)، الأداء المتفوق، والتوسع المستقبلي.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 4 -->
+                <div class="relative right-0 sm:right-12 glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="absolute -right-12 sm:-right-16 top-8 w-8 h-8 rounded-full bg-slate-700 border-4 border-slate-900 flex items-center justify-center text-white text-xs">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-gray-300 text-xs font-bold">فبراير 2005 - يوليو 2006</span>
+                            <h3 class="text-xl font-bold text-white mt-2">مهندس المكتب الفني (Technical Office Engineer)</h3>
+                            <h4 class="text-gray-400 text-sm">مصلحة الميكانيكا والكهرباء - وزارة الري</h4>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+                        <li>تصميم وإدارة قواعد بيانات الموظفين والشئون المالية (الأجور والرواتب والإجازات) باستخدام MS Access و Excel مع VBA.</li>
+                        <li>إنشاء قواعد بيانات محطات الرفع وتتبع معدلات التشغيل وجداول الصيانة الدورية.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 5 -->
+                <div class="relative right-0 sm:right-12 glass-card p-6 sm:p-8 rounded-2xl space-y-4">
+                    <div class="absolute -right-12 sm:-right-16 top-8 w-8 h-8 rounded-full bg-slate-700 border-4 border-slate-900 flex items-center justify-center text-white text-xs">
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-slate-800 text-gray-300 text-xs font-bold">فبراير 2000 - فبراير 2005</span>
+                            <h3 class="text-xl font-bold text-white mt-2">مهندس اتصالات (Communication Engineer)</h3>
+                            <h4 class="text-gray-400 text-sm">مشروع نظام الاتصالات النيزكي (Meteor Burst Communication System) - وزارة الري بمشاركة USAID</h4>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-gray-300 text-sm list-disc list-inside leading-relaxed">
+                        <li>تركيب وصيانة وتحديث محطات جمع البيانات المائية لتتبع وتقييم مناسيب المياه على طول مجرى نهر النيل.</li>
+                        <li>تقييم مناسيب المياه في المحافظات والمواقع النيلية عبر الإشارات اللاسلكية والـ Microwave.</li>
+                        <li>تخطيط وتصميم شبكات الاتصال بين المقر الرئيسي والمواقع والرموز البعيدة.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500 text-xl">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">المهارات والقدرات التقنية</h2>
+                    <p class="text-sm text-gray-400">بيئة شاملة تجمع بين النظم الجغرافية، الاتصالات، الخوادم، والبرمجة</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- GIS & Remote Sensing Card -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3 text-gis-accent text-lg font-bold border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>نظم GIS والاستشعار عن بعد</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                        <li><strong class="text-white">البرامج:</strong> Esri ArcGIS Desktop & Enterprise, QGIS, Global Mapper, GRASS GIS</li>
+                        <li><strong class="text-white">الاستشعار عن بعد:</strong> ERDAS, ENVI, SNAP, معالجة الصور الفضائية</li>
+                        <li><strong class="text-white">مصادر البيانات المفتوحة:</strong> Sentinel Data Hub, OpenStreetMap, NASA Earth-data, USGS</li>
+                        <li><strong class="text-white">التكامل والتحويل:</strong> Shapefiles, Feature-Classes, KML, GeoJSON</li>
+                        <li><strong class="text-white">الخرائط الرقمية:</strong> تصميم الخرائط، إسقاطات الخرائط، والتحليل المكاني المتقدم</li>
+                    </ul>
+                </div>
+
+                <!-- IT Hardware & Servers -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3 text-brand-500 text-lg font-bold border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-server"></i>
+                        <span>السيرفرات والأنظمة IT</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                        <li><strong class="text-white">الخوادم وحدات التخزين:</strong> خبرة عميقة في خوادم HP ProLiant (Rack/Blade) وأنظمة Dell</li>
+                        <li><strong class="text-white">شبكات التخزين:</strong> Fiber Channel SAN Technologies</li>
+                        <li><strong class="text-white">معمارية النظم:</strong> إعداد الأجهزة ذات الاعتمادية العالية High Availability والتوسع المستقبلي</li>
+                        <li><strong class="text-white">أنظمة التشغيل:</strong> Windows Server, Windows 11/10/8/7, macOS</li>
+                    </ul>
+                </div>
+
+                <!-- Networking & Telecom -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3 text-gis-gold text-lg font-bold border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <span>الشبكات والاتصالات</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                        <li><strong class="text-white">بروتوكولات التوجيه:</strong> RIP, IGRP, EIGRP, OSPF, BGP</li>
+                        <li><strong class="text-white">تصميم الشبكات:</strong> IP Network Design, TCP/IP, Access List</li>
+                        <li><strong class="text-white">أجهزة Cisco:</strong> تركيب وتهيئة واستكشاف أخطاء أجهزة Cisco</li>
+                        <li><strong class="text-white">السنترالات والاتصالات:</strong> 5ESS, EWSD, NEAX61E, AUX</li>
+                    </ul>
+                </div>
+
+                <!-- Software & Programming -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center gap-3 text-purple-400 text-lg font-bold border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-code"></i>
+                        <span>البرمجة وقواعد البيانات</span>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                        <li><strong class="text-white">لغات البرمجة:</strong> Python (ArcPy), C++, Visual Basic, Pascal</li>
+                        <li><strong class="text-white">قواعد البيانات:</strong> SQL Server, MS Access with Advanced VBA</li>
+                        <li><strong class="text-white">الحزم المكتبية:</strong> MS Excel (VBA), Office 365, SharePoint Online</li>
+                        <li><strong class="text-white">التحكم الآلي:</strong> PLC, Arduino, Electronic Graphics (ORCAD)</li>
+                    </ul>
+                </div>
+
+                <!-- Certifications Quick view -->
+                <div class="glass-card p-6 rounded-2xl space-y-4 lg:col-span-2">
+                    <div class="flex items-center gap-3 text-emerald-400 text-lg font-bold border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>الشهادات الاعتمادية الاحترافية (Certified Professional)</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                        <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
+                            <span class="text-brand-500 font-bold block">Esri Certification</span>
+                            <span class="text-white">• ArcGIS Desktop I – Getting Started with GIS</span><br>
+                            <span class="text-white">• ArcGIS Desktop II – Tools and Functionality</span>
+                        </div>
+                        <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800">
+                            <span class="text-brand-500 font-bold block">HP Certified Systems Engineer</span>
+                            <span class="text-white">• HP 683 Implementing HP ProLiant Server (100%)</span><br>
+                            <span class="text-white">• HP 797 Enterprise Integration (98%)</span><br>
+                            <span class="text-white">• HP 027 Technical Essential of HP Enterprise (76.1%)</span>
+                        </div>
+                        <div class="bg-slate-900/40 p-3 rounded-lg border border-slate-800 sm:col-span-2">
+                            <span class="text-brand-500 font-bold block">Dell Certified Sales & Product Engineer</span>
+                            <span class="text-white">• Dell Product Sales - LCA & Extended Certification</span> | 
+                            <span class="text-white">Services, SME & SOHO Certification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training & Specialized Programs -->
+        <section id="certifications" class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500 text-xl">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">البرامج التدريبية المتقدمة</h2>
+                    <p class="text-sm text-gray-400">دورات تخصصية دولية ومحلية في إدارة الموارد المائية ونظم المعلومات</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Training Item 1 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-white text-base">إدارة المخاطر البيئية والفيضانات - برنامج Water Knowledge</h3>
+                        <span class="text-xs bg-slate-800 text-brand-500 px-2 py-1 rounded">إيطالي / مصري</span>
+                    </div>
+                    <p class="text-xs text-gray-400">بالتعاون بين المركز الإقليمي RCTWS ومعهد Ciheam Bari الإيطالي</p>
+                    <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                        <li>مبادئ الإدارة المتكاملة للموارد المائية (IWRM)</li>
+                        <li>إدارة الحوض المائي والبنية التحتية والبيئية</li>
+                        <li>الهيدرولوجيا الحضرية والتخفيف من مخاطر الفيضانات</li>
+                        <li>أنظمة الإنذار المبكر والتنبؤ والرصد</li>
+                        <li>تطبيقات وبيانات مخرجات مراقبة الأرض Earth Observation في إدارة المخاطر</li>
+                    </ul>
+                </div>
+
+                <!-- Training Item 2 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-white text-base">الرؤية الرقمية والمعالجة الذكية Digital Vision</h3>
+                        <span class="text-xs bg-slate-800 text-brand-500 px-2 py-1 rounded">RCTWS</span>
+                    </div>
+                    <p class="text-xs text-gray-400">استخدام لغة Python ومكتبات OpenCV في تحليل الصور</p>
+                    <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                        <li>معالجة الصور الرقمية واستخراج المعالم تلقائياً</li>
+                        <li>تدريب تطبيقات SQL Server للـ GIS وقواعد البيانات</li>
+                        <li>تطوير برمجيات MS Access & Excel مع VBA المتقدمة</li>
+                    </ul>
+                </div>
+
+                <!-- Training Item 3 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-white text-base">شبكات الاتصالات المتقدمة (NTI & Cisco)</h3>
+                        <span class="text-xs bg-slate-800 text-brand-500 px-2 py-1 rounded">المعهد القومي للاتصالات</span>
+                    </div>
+                    <p class="text-xs text-gray-400">تضمن التدريب العملي في شركة Lucent Technologies (Bell Labs Innovations)</p>
+                    <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                        <li>منهج أكاديمية سيسكو (CCNA & CCNP): Routing, Switching, LAN, WAN</li>
+                        <li>إدارة وحل مشكلات الشبكات وتأمين الوصول Access Control Lists</li>
+                    </ul>
+                </div>
+
+                <!-- Training Item 4 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-white text-base">تكنولوجيا الخوادم النصلية HP Blade Systems</h3>
+                        <span class="text-xs bg-slate-800 text-brand-500 px-2 py-1 rounded">OMS</span>
+                    </div>
+                    <p class="text-xs text-gray-400">HP Blade System C-Class Solutions, Planning & Implementation</p>
+                    <ul class="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                        <li>تخطيط وتطوير خوادم HP ProLiant V5.21</li>
+                        <li>شهادة الاعتماد الفني HP ASE ProLiant</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="glass-card p-8 rounded-3xl relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-3 text-center md:text-right">
+                    <span class="text-xs text-brand-500 font-bold uppercase tracking-wider">الدرجة العلمية والتعليم</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">بكالوريوس هندسة الاتصالات والإلكترونيات</h2>
+                    <p class="text-gray-300">الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري (AAST)</p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs text-gray-300 border border-slate-700">سنة التخرج: مارس 1999</span>
+                        <span class="px-3 py-1 rounded-full bg-gis-accent/20 text-gis-accent text-xs font-bold border border-gis-accent/30">التقدير العام: جيد جداً</span>
+                    </div>
+                </div>
+
+                <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-600 to-gis-accent flex items-center justify-center text-white text-4xl shadow-xl shrink-0">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card border-t border-slate-800 py-8 mt-12 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="text-sm text-gray-400">
+                جميع الحقوق محفوظة © <span id="year"></span> - المهندس محمد عبد الحليم حسنين
+            </p>
+            <p class="text-xs text-gray-500">
+                موقع سيرة ذاتية تفاعلي مخصص للرفع المباشر على GitHub Pages
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
